@@ -4,6 +4,6 @@ export interface CrewMember {
   image: string;
   wikipedia: string;
   launches: string[];
-  statis: string;
+  status: string;
   id: string;
 }
