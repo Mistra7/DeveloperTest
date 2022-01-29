@@ -22,6 +22,8 @@ const getRocketsFulfilled = (payload: Rocket[]): RocketsActions => ({
   payload,
 });
 
+export const popUpShowed = (): RocketsActions => ({type: RocketsConstants.OPEN_FULL_IMAGE_SHOWED});
+
 export const getRockets = (): ThunkAction => {
   return dispatch => {
     dispatch(getRocketsPending());

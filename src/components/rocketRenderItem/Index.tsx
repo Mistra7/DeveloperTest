@@ -2,21 +2,20 @@ import React, {memo} from 'react';
 import {View} from 'react-native';
 import {renderItemStyles} from '../../constants/styles/RenderItemStyles';
 import {Rocket} from '../../models/Rocket';
-import RocketImage from './RocketImage';
+import DevelopText from '../DevelopText';
+import ImagesContainer from './ImagesContainer';
 import RocketInformation from './RocketInformation';
 
 interface Props {
   item: Rocket;
+  onImagePress: (image: string) => void;
 }
 
-const placeholder = require('../../../assets/images/placeholder.jpeg');
-
-const RocketRenderItem: React.FC<Props> = ({item}) => {
-  const imageSource = item.flickr_images.length ? {uri: item.flickr_images[0]} : placeholder;
-
+const RocketRenderItem: React.FC<Props> = ({item, onImagePress}) => {
   return (
     <View style={renderItemStyles.container}>
-      <RocketImage source={imageSource} />
+      <DevelopText style={renderItemStyles.title}>{item.name}</DevelopText>
+      <ImagesContainer imageURLs={item.flickr_images} onPress={onImagePress} />
       <RocketInformation rocket={item} />
     </View>
   );

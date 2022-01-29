@@ -3,6 +3,7 @@ import {FlatList, ImageBackground, Linking} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCrewMembers} from '../actions/CrewMembersActions';
 import CrewRenderItem from '../components/crewRenderItem/Index';
+import EmptyListComponent from '../components/EmptyListComponent';
 import FlatListSeparator from '../components/FlatListSeparator';
 import {screenStyles} from '../constants/styles/ScreenStyles';
 import {CrewMember} from '../models/CrewMember';
@@ -36,6 +37,8 @@ const CrewMembersScreen: React.FC<CrewMembersScreenProps> = () => {
         style={screenStyles.flatListStyle}
         contentContainerStyle={screenStyles.flatListContainer}
         ItemSeparatorComponent={FlatListSeparator}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={<EmptyListComponent stateType="crew" />}
       />
     </ImageBackground>
   );

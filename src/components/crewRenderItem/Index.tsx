@@ -14,7 +14,7 @@ const CrewRenderItem: React.FC<Props> = ({item, onWikiLinkPress}) => {
   const onLinkPress = () => onWikiLinkPress(item.wikipedia);
 
   return (
-    <TouchableOpacity style={renderItemStyles.container} activeOpacity={0.8}>
+    <TouchableOpacity style={[renderItemStyles.container, renderItemStyles.flexRow]} activeOpacity={0.8}>
       <CrewImage source={{uri: item.image}} />
       <View style={{flex: 1}}>
         <DevelopText style={renderItemStyles.title}>{item.name}</DevelopText>

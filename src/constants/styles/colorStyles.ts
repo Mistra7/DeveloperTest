@@ -8,4 +8,5 @@ export const ColorPallete = {
   tabBarIconColor: Colors.MELON_YELLOW,
   rocket: Colors.VALENCIA,
   rocketText: Colors.WHITE,
+  popUpBackground: Colors.WHITE,
 };

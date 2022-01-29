@@ -1,14 +1,29 @@
 import React from 'react';
-import {Image, ImageProps, StyleSheet} from 'react-native';
+import {Image, ImageProps, StyleSheet, TouchableOpacity} from 'react-native';
 
-const RocketImage: React.FC<ImageProps> = ({style, ...props}) => <Image {...props} style={[styles.image, style]} />;
+type BaseProps = Omit<ImageProps, 'source'>;
+
+interface Props extends BaseProps {
+  onPress: (image: string) => void;
+  source: string;
+}
+
+const RocketImage: React.FC<Props> = ({style, onPress, source, ...props}) => {
+  const onPressHandle = () => onPress(source);
+
+  return (
+    <TouchableOpacity onPress={onPressHandle}>
+      <Image {...props} source={{uri: source}} style={[styles.image, style]} />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   image: {
-    borderRadius: 10,
-    height: 150,
-    width: 160,
-    marginRight: 10,
+    borderRadius: 25,
+    height: 50,
+    width: 50,
+    marginHorizontal: 7.5,
   },
 });
 

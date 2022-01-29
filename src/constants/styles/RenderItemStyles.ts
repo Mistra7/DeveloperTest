@@ -7,12 +7,11 @@ export const renderItemStyles = StyleSheet.create({
     backgroundColor: ColorPallete.theme,
     padding: 10,
     width: '100%',
-    flexDirection: 'row',
   },
   title: {
     fontWeight: 'bold',
     alignSelf: 'center',
-    marginBottom: 10,
+    marginBottom: 5,
     color: ColorPallete.rocketText,
   },
   description: {
@@ -22,5 +21,8 @@ export const renderItemStyles = StyleSheet.create({
   },
   underline: {
     textDecorationLine: 'underline',
+  },
+  flexRow: {
+    flexDirection: 'row',
   },
 });

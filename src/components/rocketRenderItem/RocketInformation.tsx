@@ -11,7 +11,6 @@ interface Props {
 const RocketInformation: React.FC<Props> = ({rocket}) => {
   return (
     <View style={styles.container}>
-      <DevelopText style={renderItemStyles.title}>{rocket.name}</DevelopText>
       <DevelopText style={renderItemStyles.description}>Diameter: {rocket.diameter.meters}m</DevelopText>
       <DevelopText style={renderItemStyles.description}>Weight: {rocket.mass.kg}kg</DevelopText>
       <DevelopText style={renderItemStyles.description}>
