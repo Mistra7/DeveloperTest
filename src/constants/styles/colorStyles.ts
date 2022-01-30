@@ -9,4 +9,7 @@ export const ColorPallete = {
   rocket: Colors.VALENCIA,
   rocketText: Colors.WHITE,
   popUpBackground: Colors.WHITE,
+  seeDetailsIcon: Colors.WHITE,
+  wikiButton: Colors.BRIGHT_BLUE,
+  wikiText: Colors.WHITE,
 };

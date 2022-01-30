@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList, ImageBackground, Linking} from 'react-native';
+import {FlatList, ImageBackground} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCrewMembers} from '../actions/CrewMembersActions';
 import CrewRenderItem from '../components/crewRenderItem/Index';
@@ -7,16 +7,15 @@ import EmptyListComponent from '../components/EmptyListComponent';
 import FlatListSeparator from '../components/FlatListSeparator';
 import {screenStyles} from '../constants/styles/ScreenStyles';
 import {CrewMember} from '../models/CrewMember';
+import {AppRoute} from '../navigation/routes';
 import {RootState} from '../reducers/rootReducer';
 import {CrewMembersScreenProps} from '../types/navigation/BottomTabNavigation';
 
 const backgroundImage = require('../../assets/images/astronaut.png');
 
-const CrewMembersScreen: React.FC<CrewMembersScreenProps> = () => {
+const CrewMembersScreen: React.FC<CrewMembersScreenProps> = navigator => {
   const crewMembers = useSelector((state: RootState) => state.crew.crewMembers);
   const dispatch = useDispatch();
-
-  const onLinkPress = (link: string) => Linking.openURL(link);
 
   useEffect(() => {
     if (!crewMembers.length) {
@@ -24,7 +23,15 @@ const CrewMembersScreen: React.FC<CrewMembersScreenProps> = () => {
     }
   }, [crewMembers]);
 
-  const renderItem = ({item}: {item: CrewMember}) => <CrewRenderItem item={item} onWikiLinkPress={onLinkPress} />;
+  const onPress = (member: CrewMember) => {
+    const parent = navigator.navigation.getParent();
+
+    if (parent) {
+      parent.navigate(AppRoute.CREW_MEMBER_SCREEN, {member});
+    }
+  };
+
+  const renderItem = ({item}: {item: CrewMember}) => <CrewRenderItem item={item} onPress={onPress} />;
 
   const keyExtractor = (item: CrewMember) => item.id;
 

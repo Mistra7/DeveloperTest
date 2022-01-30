@@ -19,6 +19,15 @@ export const bottomTabNavigatorConfig: BottomTabNavigationOptions = {
   tabBarActiveTintColor: ColorPallete.tabBarIconColor,
 };
 
-export const rootNavigatorConfig: StackNavigationOptions = {
+export const tabNavigatorConfig: StackNavigationOptions = {
   headerShown: false,
+};
+
+export const crewMemberScreenConfig: StackNavigationOptions = {
+  headerTitleAlign: 'center',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    color: ColorPallete.headerTextColor,
+    fontSize: 20,
+  },
 };
