@@ -1,6 +1,5 @@
 import React, {memo} from 'react';
-import {StyleSheet} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import {FlatList, StyleSheet} from 'react-native';
 import RocketImage from './RocketImage';
 
 interface Props {
@@ -9,20 +8,24 @@ interface Props {
 }
 
 const ImagesContainer: React.FC<Props> = ({imageURLs, onPress}) => {
+  const renderItem = ({item}: {item: string}) => <RocketImage source={item} onPress={onPress} />;
+
+  const keyExtractor = (image: string) => image;
+
   return (
-    <ScrollView showsHorizontalScrollIndicator={false} contentContainerStyle={styles.container} horizontal>
-      {imageURLs.map(image => (
-        <RocketImage source={image} key={image} onPress={onPress} />
-      ))}
-    </ScrollView>
+    <FlatList
+      data={imageURLs}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+    />
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'center',
     paddingVertical: 10,
   },
 });
