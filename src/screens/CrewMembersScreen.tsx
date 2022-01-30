@@ -22,9 +22,11 @@ const CrewMembersScreen: React.FC<CrewMembersScreenProps> = navigator => {
   const [permissionsGranted, setPermissionsGranted] = useState<PermissionsGranted>();
   const dispatch = useDispatch();
 
+  const getCrewMembersHandle = () => dispatch(getCrewMembers());
+
   useEffect(() => {
     if (!crewMembers.length) {
-      dispatch(getCrewMembers());
+      getCrewMembersHandle();
     }
   }, [crewMembers]);
 
@@ -64,7 +66,7 @@ const CrewMembersScreen: React.FC<CrewMembersScreenProps> = navigator => {
         contentContainerStyle={screenStyles.flatListContainer}
         ItemSeparatorComponent={FlatListSeparator}
         showsVerticalScrollIndicator={false}
-        ListEmptyComponent={<EmptyListComponent stateType="crew" />}
+        ListEmptyComponent={<EmptyListComponent stateType="crew" onTryAgainPress={getCrewMembersHandle} />}
       />
       <PermissionsModal permissions={permissionsGranted} />
     </ImageBackground>

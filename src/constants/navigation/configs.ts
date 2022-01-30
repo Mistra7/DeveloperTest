@@ -1,22 +1,22 @@
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {StackNavigationOptions} from '@react-navigation/stack';
-import {ColorPallete} from '../styles/colorStyles';
+import {Colors} from '../styles/colors';
 
 export const bottomTabNavigatorConfig: BottomTabNavigationOptions = {
   headerShown: true,
   headerTitleAlign: 'center',
   headerTitleStyle: {
     fontWeight: 'bold',
-    color: ColorPallete.headerTextColor,
+    color: Colors.BLACK,
     fontSize: 25,
   },
   headerStyle: {
-    backgroundColor: ColorPallete.headerBackgroundColor,
+    backgroundColor: Colors.WHITE,
   },
   tabBarStyle: {
-    backgroundColor: ColorPallete.theme,
+    backgroundColor: Colors.DAINTREE,
   },
-  tabBarActiveTintColor: ColorPallete.tabBarIconColor,
+  tabBarActiveTintColor: Colors.MELON_YELLOW,
 };
 
 export const tabNavigatorConfig: StackNavigationOptions = {
@@ -27,7 +27,7 @@ export const crewMemberScreenConfig: StackNavigationOptions = {
   headerTitleAlign: 'center',
   headerTitleStyle: {
     fontWeight: 'bold',
-    color: ColorPallete.headerTextColor,
+    color: Colors.BLACK,
     fontSize: 20,
   },
 };

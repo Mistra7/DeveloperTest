@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Modal from 'react-native-modal';
-import {ColorPallete} from '../../constants/styles/colorStyles';
+import {Colors} from '../../constants/styles/colors';
 import DevelopButton from '../DevelopButton';
 import DevelopText from '../DevelopText';
 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     width: '90%',
     padding: 20,
-    backgroundColor: ColorPallete.popUpBackground,
+    backgroundColor: Colors.WHITE,
     borderRadius: 10,
     alignSelf: 'center',
     alignItems: 'center',
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   linkableText: {
-    color: ColorPallete.linkAbleText,
+    color: Colors.BRIGHT_BLUE,
   },
 });
 
