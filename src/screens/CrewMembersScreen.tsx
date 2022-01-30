@@ -1,20 +1,25 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FlatList, ImageBackground} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCrewMembers} from '../actions/CrewMembersActions';
 import CrewRenderItem from '../components/crewRenderItem/Index';
 import EmptyListComponent from '../components/EmptyListComponent';
 import FlatListSeparator from '../components/FlatListSeparator';
+import PermissionsModal from '../components/permissionsModal/Index';
 import {screenStyles} from '../constants/styles/ScreenStyles';
 import {CrewMember} from '../models/CrewMember';
+import {PermissionsGranted} from '../models/PermissionsGranted';
 import {AppRoute} from '../navigation/routes';
 import {RootState} from '../reducers/rootReducer';
 import {CrewMembersScreenProps} from '../types/navigation/BottomTabNavigation';
+import checkAllPermissions from '../utils/permissionsUtils';
 
 const backgroundImage = require('../../assets/images/astronaut.png');
 
 const CrewMembersScreen: React.FC<CrewMembersScreenProps> = navigator => {
   const crewMembers = useSelector((state: RootState) => state.crew.crewMembers);
+  const pressedCrewMember = useRef<CrewMember>();
+  const [permissionsGranted, setPermissionsGranted] = useState<PermissionsGranted>();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,12 +28,26 @@ const CrewMembersScreen: React.FC<CrewMembersScreenProps> = navigator => {
     }
   }, [crewMembers]);
 
-  const onPress = (member: CrewMember) => {
+  const handleNavigation = () => {
     const parent = navigator.navigation.getParent();
 
-    if (parent) {
-      parent.navigate(AppRoute.CREW_MEMBER_SCREEN, {member});
+    if (parent && pressedCrewMember.current) {
+      parent.navigate(AppRoute.CREW_MEMBER_SCREEN, {member: pressedCrewMember.current});
     }
+  };
+
+  const onCheckPermissionsCallback = (canContinue: boolean, permissions: PermissionsGranted) => {
+    if (canContinue) {
+      handleNavigation();
+      return;
+    }
+
+    setPermissionsGranted(permissions);
+  };
+
+  const onPress = (member: CrewMember) => {
+    pressedCrewMember.current = member;
+    checkAllPermissions(onCheckPermissionsCallback);
   };
 
   const renderItem = ({item}: {item: CrewMember}) => <CrewRenderItem item={item} onPress={onPress} />;
@@ -47,6 +66,7 @@ const CrewMembersScreen: React.FC<CrewMembersScreenProps> = navigator => {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={<EmptyListComponent stateType="crew" />}
       />
+      <PermissionsModal permissions={permissionsGranted} />
     </ImageBackground>
   );
 };
