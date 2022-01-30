@@ -7,4 +7,5 @@ export interface RocketsState {
   fulfilled: boolean;
   error?: AxiosError;
   rockets: Rocket[];
+  howToShowFullImagePopUpShowed: boolean;
 }

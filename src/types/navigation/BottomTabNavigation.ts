@@ -16,3 +16,8 @@ export interface RocketsScreenProps {
   navigation: BottomTabScreenProps<BottomTabNavigatorParams, AppRoute.ROCKETS_SCREEN>;
   route: RouteProp<BottomTabNavigatorParams, AppRoute.ROCKETS_SCREEN>;
 }
+
+export interface ScreenOptionsProps {
+  navigation: BottomTabScreenProps<BottomTabNavigatorParams, AppRoute.ROCKETS_SCREEN | AppRoute.CREW_MEMBERS_SCREEN>;
+  route: RouteProp<BottomTabNavigatorParams, AppRoute.ROCKETS_SCREEN | AppRoute.CREW_MEMBERS_SCREEN>;
+}

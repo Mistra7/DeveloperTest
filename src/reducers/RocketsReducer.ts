@@ -7,6 +7,7 @@ const initialState: RocketsState = {
   rejected: false,
   fulfilled: false,
   rockets: [],
+  howToShowFullImagePopUpShowed: false,
 };
 
 const RocketsReducer = (state = initialState, action: RocketsActions): RocketsState => {

@@ -1,8 +1,22 @@
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {StackNavigationOptions} from '@react-navigation/stack';
+import {ColorPallete} from '../styles/colorStyles';
 
 export const bottomTabNavigatorConfig: BottomTabNavigationOptions = {
-  headerShown: false,
+  headerShown: true,
+  headerTitleAlign: 'center',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    color: ColorPallete.headerTextColor,
+    fontSize: 25,
+  },
+  headerStyle: {
+    backgroundColor: ColorPallete.headerBackgroundColor,
+  },
+  tabBarStyle: {
+    backgroundColor: ColorPallete.theme,
+  },
+  tabBarActiveTintColor: ColorPallete.tabBarIconColor,
 };
 
 export const rootNavigatorConfig: StackNavigationOptions = {
