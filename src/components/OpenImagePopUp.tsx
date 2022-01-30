@@ -31,7 +31,7 @@ const OpenImagePopUp: React.FC<Props> = ({visible, callback}) => {
 
   return (
     <Animated.View style={[styles.container, {opacity: opacityAnim.current}]}>
-      <DevelopText>To see full image, press on the thumbnail!</DevelopText>
+      <DevelopText>To see full image, just press on it!</DevelopText>
     </Animated.View>
   );
 };

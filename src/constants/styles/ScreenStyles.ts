@@ -8,6 +8,9 @@ export const screenStyles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: 'center',
   },
+  crewDetails: {
+    alignItems: 'center',
+  },
   flatListStyle: {
     paddingVertical: 10,
   },
@@ -22,5 +25,8 @@ export const screenStyles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+  },
+  flex: {
+    flex: 1,
   },
 });

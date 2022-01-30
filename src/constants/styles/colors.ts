@@ -8,4 +8,5 @@ export const Colors = {
   NIGHT_BLUE: '#252850',
   MELON_YELLOW: '#F4A900',
   OPAL_GREEN: '#015D52',
+  BRIGHT_BLUE: '#0096FF',
 };
