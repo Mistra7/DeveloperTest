@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {ColorPallete} from '../constants/styles/colorStyles';
+import {Colors} from '../constants/styles/colors';
 import DevelopText from './DevelopText';
 
 interface Props {
@@ -16,14 +16,14 @@ const DevelopButton: React.FC<Props> = ({label, onPress}) => (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: ColorPallete.theme,
+    backgroundColor: Colors.DAINTREE,
     padding: 10,
     borderRadius: 20,
     width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  label: {color: ColorPallete.rocketText},
+  label: {color: Colors.WHITE},
 });
 
 export default DevelopButton;

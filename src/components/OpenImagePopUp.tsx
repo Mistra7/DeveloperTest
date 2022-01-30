@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated, StyleSheet} from 'react-native';
-import {ColorPallete} from '../constants/styles/colorStyles';
+import {Colors} from '../constants/styles/colors';
 import DevelopText from './DevelopText';
 
 interface Props {
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 25,
     padding: 20,
-    backgroundColor: ColorPallete.popUpBackground,
+    backgroundColor: Colors.WHITE,
     alignSelf: 'center',
     borderRadius: 40,
   },

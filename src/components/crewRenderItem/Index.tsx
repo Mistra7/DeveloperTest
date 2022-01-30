@@ -5,7 +5,7 @@ import {CrewMember} from '../../models/CrewMember';
 import DevelopText from '../DevelopText';
 import CrewImage from './CrewImage';
 import Icon from '../../../assets/Icons/MyIcon';
-import {ColorPallete} from '../../constants/styles/colorStyles';
+import {Colors} from '../../constants/styles/colors';
 
 interface Props {
   item: CrewMember;
@@ -26,7 +26,7 @@ const CrewRenderItem: React.FC<Props> = ({item, onPress}) => {
         <DevelopText style={renderItemStyles.description}>Agency: {item.agency}</DevelopText>
         <DevelopText style={renderItemStyles.description}>Status: {item.status}</DevelopText>
       </View>
-      <Icon name="right-chevron" color={ColorPallete.seeDetailsIcon} style={styles.icon} size={25} />
+      <Icon name="right-chevron" color={Colors.WHITE} style={styles.icon} size={25} />
     </TouchableOpacity>
   );
 };

@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
-import {ColorPallete} from './colorStyles';
+import {Colors} from './colors';
 
 export const renderItemStyles = StyleSheet.create({
   container: {
     borderRadius: 10,
-    backgroundColor: ColorPallete.theme,
+    backgroundColor: Colors.DAINTREE,
     padding: 10,
     width: '100%',
   },
@@ -12,12 +12,12 @@ export const renderItemStyles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     marginBottom: 5,
-    color: ColorPallete.rocketText,
+    color: Colors.WHITE,
   },
   description: {
     fontSize: 12,
     lineHeight: 20,
-    color: ColorPallete.rocketText,
+    color: Colors.WHITE,
   },
   underline: {
     textDecorationLine: 'underline',

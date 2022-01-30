@@ -20,9 +20,11 @@ const RocketsScreen: React.FC<RocketsScreenProps> = () => {
   const [popUpVisible, setPopUpVisible] = useState(false);
   const [fullImageSize, setFullImageSize] = useState<string>();
 
+  const getRocketsHandle = () => dispatch(getRockets());
+
   useEffect(() => {
     if (!rockets.length) {
-      dispatch(getRockets());
+      getRocketsHandle();
     }
 
     if (!howToShowFullImagePopUpShowed) {
@@ -52,7 +54,7 @@ const RocketsScreen: React.FC<RocketsScreenProps> = () => {
         showsVerticalScrollIndicator={false}
         style={screenStyles.flatListStyle}
         contentContainerStyle={screenStyles.flatListContainer}
-        ListEmptyComponent={<EmptyListComponent stateType="rockets" />}
+        ListEmptyComponent={<EmptyListComponent stateType="rockets" onTryAgainPress={getRocketsHandle} />}
       />
       <OpenImagePopUp visible={popUpVisible} callback={popUpCallback} />
       <FullSizeImageModal image={fullImageSize} closeImage={closeImage} />

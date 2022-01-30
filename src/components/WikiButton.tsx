@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {ColorPallete} from '../constants/styles/colorStyles';
+import {Colors} from '../constants/styles/colors';
 import DevelopText from './DevelopText';
 
 interface Props {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
     margin: 25,
     padding: 30,
-    backgroundColor: ColorPallete.wikiButton,
+    backgroundColor: Colors.BRIGHT_BLUE,
     justifyContent: 'center',
     alignSelf: 'center',
     alignItems: 'center',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: ColorPallete.wikiText,
+    color: Colors.WHITE,
     fontWeight: 'bold',
   },
 });

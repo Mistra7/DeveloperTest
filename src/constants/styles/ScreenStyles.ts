@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
-import {ColorPallete} from './colorStyles';
+import {Colors} from './colors';
 
 export const screenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: ColorPallete.screenBackground,
+    backgroundColor: Colors.WHITE,
     paddingHorizontal: 10,
     justifyContent: 'center',
   },
