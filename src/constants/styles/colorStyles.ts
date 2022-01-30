@@ -12,4 +12,5 @@ export const ColorPallete = {
   seeDetailsIcon: Colors.WHITE,
   wikiButton: Colors.BRIGHT_BLUE,
   wikiText: Colors.WHITE,
+  linkAbleText: Colors.BRIGHT_BLUE,
 };
