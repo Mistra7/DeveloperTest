@@ -1,0 +1,12 @@
+export const Colors = {
+  BLACK: '#000',
+  WHITE: '#fff',
+  ASTRONAUT: '#283A77',
+  DAINTREE: '#011A2F',
+  BROWN_POD: '#2f1201',
+  VALENCIA: '#D64550',
+  NIGHT_BLUE: '#252850',
+  MELON_YELLOW: '#F4A900',
+  OPAL_GREEN: '#015D52',
+  BRIGHT_BLUE: '#0096FF',
+};
